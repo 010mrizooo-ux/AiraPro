@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AiraPro — sayohat rejasi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f3f6fc;--card:#fff;--ink:#0d1b33;--mut:#566783;--line:#d6e0ef;--soft:#e8effb;--blue:#1d4ed8;--green:#0e9f6e;--red:#e11d48;--bt:var(--blue);--gt:color-mix(in srgb,var(--green) 70%,#000);--rt:var(--red);--sh:0 8px 24px rgba(20,60,140,.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1220;--card:#111c30;--ink:#e9f0fc;--mut:#9fb0cc;--line:#22314d;--soft:#172540;--bt:color-mix(in srgb,var(--blue) 45%,#fff);--gt:color-mix(in srgb,var(--green) 70%,#fff);--rt:color-mix(in srgb,var(--red) 65%,#fff);--sh:0 8px 24px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0a1220;--card:#111c30;--ink:#e9f0fc;--mut:#9fb0cc;--line:#22314d;--soft:#172540;--bt:color-mix(in srgb,var(--blue) 45%,#fff);--gt:color-mix(in srgb,var(--green) 70%,#fff);--rt:color-mix(in srgb,var(--red) 65%,#fff);--sh:0 8px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Bricolage Grotesque",system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:26px;letter-spacing:-.02em}.logo b{color:var(--gt)}.logo i{font-style:normal;color:var(--rt)}
+.tb{display:flex;gap:8px;flex-wrap:wrap}
+.hero{border-radius:24px;padding:clamp(22px,5vw,40px);color:#fff;background:linear-gradient(120deg,var(--blue),color-mix(in srgb,var(--green) 72%,#000));box-shadow:var(--sh)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,6vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:800}
+.hero p{margin:0;max-width:52ch;opacity:.95}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin:20px 0;box-shadow:var(--sh)}
+h2.t{margin:28px 0 4px;font-size:22px}
+.card h2{margin:0 0 4px;font-size:20px}.hint{color:var(--mut);font-size:14px;margin:0 0 14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600}
+label small{font-weight:400;color:var(--mut)}
+input,select{font:inherit;font-weight:400;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:44px;width:100%}
+input[type=color]{padding:4px}input[type=range]{padding:0;min-height:30px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+button{font:inherit;font-weight:600;border:0;border-radius:12px;padding:11px 18px;min-height:44px;cursor:pointer;background:var(--blue);color:#fff}
+button.gr{background:color-mix(in srgb,var(--green) 72%,#000)}button.rd{background:color-mix(in srgb,var(--red) 85%,#000)}button.al{background:var(--soft);color:var(--ink)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.err{color:var(--rt);font-weight:600;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:12px 0}
+.dest{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--sh);min-height:0}
+.dest.on{border-color:var(--blue);background:var(--soft)}.dest b{font-size:18px}.dest small{color:var(--mut);font-weight:400}
+.fl{font-size:30px;line-height:1}.tmp{font-size:22px;font-weight:800;margin-top:4px}
+.bd{border-radius:99px;padding:1px 10px;font-size:13px;color:#fff}.bd.g,.dc.g{background:color-mix(in srgb,var(--green) 72%,#000)}.bd.y,.dc.y{background:#b7791f}.bd.r,.dc.r{background:color-mix(in srgb,var(--red) 85%,#000)}
+.det{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px}
+@media(max-width:720px){.det{grid-template-columns:1fr}}
+.pic{position:relative;border-radius:16px;overflow:hidden;min-height:200px;background:var(--soft)}.pic svg,.pic img{display:block;width:100%;height:100%;object-fit:cover;min-height:220px}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7));display:flex;flex-direction:column}
+.st{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.sx{background:var(--soft);border-radius:14px;padding:10px 12px}.sx small{display:block;color:var(--mut)}.sx b{font-size:18px}
+.sx.w{grid-column:1/-1}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.cal span.h{font-size:12px;color:var(--mut);text-align:center}
+.dc{display:flex;flex-direction:column;align-items:center;padding:4px 0;min-height:44px;border-radius:10px;font-weight:400;color:#fff;line-height:1.1}.dc small{font-size:11px;opacity:.9}.dc.on{outline:3px solid var(--ink);outline-offset:1px}
+.lg{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--mut);margin-top:10px}.lg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px}
+.day{margin:28px 0}.day h2{display:flex;align-items:center;gap:12px;margin:0 0 4px;font-size:24px;flex-wrap:wrap}
+.day h2 span{background:var(--blue);color:#fff;border-radius:12px;padding:2px 12px;font-size:16px}
+.idea{color:var(--mut);margin:0 0 12px}
+.stops{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.stop{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:14px;box-shadow:var(--sh)}
+.stop.c1{border-left-color:var(--green)}.stop.c2{border-left-color:var(--red)}
+.tm{font-weight:800;color:var(--bt)}.stop.c1 .tm{color:var(--gt)}.stop.c2 .tm{color:var(--rt)}
+.stop h3{margin:2px 0;font-size:18px}.ad{color:var(--mut);font-size:14px;margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.chip{background:var(--soft);border-radius:99px;padding:2px 10px;font-size:13px}
+.tip{font-size:14px;background:var(--soft);border-radius:10px;padding:8px 10px;margin:0}
+.sum{border:2px solid var(--blue)}
+.bar{display:flex;height:18px;border-radius:99px;overflow:hidden;margin:12px 0;background:var(--soft)}.bar i{display:block}
+.leg>div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:8px 0;flex-wrap:wrap}
+.leg small{display:block;color:var(--mut);font-weight:400}.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:8px}
+.tot{font-size:clamp(28px,6vw,40px);font-weight:800;margin:14px 0 4px}.ok{color:var(--gt)}.bad{color:var(--rt)}
+.note{color:var(--mut);font-size:13px}
+dialog{border:0;border-radius:20px;padding:0;width:min(900px,96vw);max-height:92vh;background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(5,12,28,.6)}
+.dh{position:sticky;top:0;z-index:2;background:var(--card);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.db{padding:20px;overflow:auto;max-height:78vh}.db h3{margin:22px 0 8px;font-size:18px;color:var(--bt)}
+.ab{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:var(--bg)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+@media print{.top,.ctl,.cards,#f,.row,#adm{display:none}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><div class="logo">Aira<b>Pro</b><i>.</i></div><div class="tb"><button class="al" id="th" type="button"></button><button class="al" id="adm" type="button">Admin panel</button></div></div>
+<section class="hero"><h1 id="ttl"></h1><p id="sbt"></p></section>
+
+<section class="card ctl">
+<h2>1. Qaysi kuni sayohatga chiqasiz?</h2>
+<p class="hint">Sanani tanlang. Pastda shu kunga mos davlatlar, harorat, quyosh va chipta narxi ko'rinadi.</p>
+<div class="g">
+<label>Sayohat sanasi<input type="date" id="start"><small>Hamma narsa shu sanaga qarab yangilanadi.</small></label>
+<label>Valyuta<select id="cur"><option value="UZS">UZS (so'm)</option><option value="USD">USD (dollar)</option></select><small>Narxlar shu valyutada chiqadi.</small></label>
+<label>Dollar kursi<input type="number" id="rate" min="1" value="12000"><small>1 dollar necha so'm.</small></label>
+</div>
+</section>
+
+<h2 class="t">2. Shu kuni qayerga borish mumkin?</h2>
+<p class="hint">Davlat kartasini bosing: pastda batafsil ma'lumot ochiladi.</p>
+<div class="cards" id="cards"></div>
+<div id="det"></div>
+
+<form id="f" class="card">
+<h2>3. Reja sozlamalari</h2>
+<p class="hint">Qancha kun, necha kishi va qancha pul sarflashingizni yozing. Reja o'zi yangilanadi.</p>
+<div class="g">
+<label>Necha kun?<input type="number" id="days" min="1" max="7" value="3"><small>1 dan 7 kungacha.</small></label>
+<label>Necha kishi?<input type="number" id="ppl" min="1" max="10" value="2"><small>Xonalar soni shundan hisoblanadi.</small></label>
+<label>Umumiy budjet<input type="number" id="bud" min="0" value="8000000"><small>Tanlangan valyutada, hamma uchun jami.</small></label>
+</div>
+<div class="row"><button class="gr" type="submit">Rejaga o'tish</button><button class="al" type="button" id="pr">Chop etish yoki PDF</button><span class="err" id="err" role="alert"></span></div>
+</form>
+<div id="out"></div>
+<p class="note" id="ftr"></p>
+</div>
+
+<dialog id="dlg"><div class="dh"><b>Admin panel</b><button class="al" type="button" data-act="close">Yopish</button></div><div class="db" id="adb"></div></dialog>
+
+<script>
+// stop: [vaqt, nom, manzil, kategoriya, narx(UZS/kishi), ish vaqti, maslahat]
+var D={
+sam:{n:"Samarqand",L:350000,F:150000,T:60000,idea:["Samarqandning yuragi: Registon, Bibixonim va Shohizinda.","Ilm va tarix: rasadxona, Afrosiyob va Amir Temur maqbarasi."],days:[
+[["09:00 - 11:00","Registon maydoni","Registon ko'chasi, Samarqand","Tarixiy obida",80000,"09:00 - 19:00","Ertalab olomon kam; kechqurun yoritilganda ham chiroyli. Yelka va tizza yopiq kiyim."],
+["11:30 - 13:00","Bibixonim masjidi","Tamerlan ko'chasi, Samarqand","Tarixiy obida",40000,"09:00 - 18:00","Bino yonida suratga tushish uchun yorug' vaqt — 11:00 dan keyin."],
+["13:15 - 14:30","Siyob bozori va osh","Siyob bozori, Samarqand","Restoran/Kafe",70000,"07:00 - 18:00","Samarqand noni va quritilgan mevalarni shu yerdan oling."],
+["15:30 - 17:30","Shohizinda majmuasi","Abdu Darun ko'chasi, Samarqand","Tarixiy obida",50000,"08:00 - 19:00","Ziyoratgoh: kiyim yopiq bo'lsin, ayollar ro'mol olib borsin."]],
+[["09:00 - 11:00","Ulug'bek rasadxonasi","Ulug'bek ko'chasi, Samarqand","Muzey",50000,"09:00 - 17:00","Gid xizmati kirish narxiga kirmasligi mumkin; oldindan so'rang."],
+["11:30 - 13:00","Afrosiyob muzeyi","Afrosiyob shohko'chasi, Samarqand","Muzey",40000,"09:00 - 17:00","Devoriy rasmlar sabab muzey ichida suratga olish alohida to'lanadi."],
+["13:15 - 14:30","Samarqand noni tushligi","Siyob ko'chasi, Samarqand","Restoran/Kafe",60000,"09:00 - 22:00","Sho'rva va kabob bilan to'yimli tushlik."],
+["16:00 - 18:00","Gur-Amir maqbarasi","Akademik Xamid Sulaymonov ko'chasi, Samarqand","Tarixiy obida",40000,"09:00 - 18:00","Quyosh botishi oldidan gumbaz juda yaxshi tushadi."]]]},
+bux:{n:"Buxoro",L:300000,F:140000,T:50000,idea:["Eski shahar: Ark, Poi Kalon va Lyabi-Hovuz.","Maqbaralar va savdo gumbazlari bilan sokin kun."],days:[
+[["09:00 - 11:00","Ark qal'asi","Xo'ja Nurobod ko'chasi, Buxoro","Tarixiy obida",50000,"09:00 - 18:00","Kunduzgi issiqdan oldin boring."],
+["11:30 - 13:00","Poi Kalon majmuasi","Xo'ja Nurobod ko'chasi, Buxoro","Tarixiy obida",50000,"09:00 - 18:00","Minora kechqurun oltin rangga kiradi."],
+["13:15 - 14:30","Lyabi-Hovuz kafesi","Lyabi-Hovuz, Buxoro","Restoran/Kafe",80000,"10:00 - 23:00","Hovuz bo'yida soyali joy tanlang."],
+["16:00 - 17:30","Chor Minor","Mirzo Ulug'bek ko'chasi, Buxoro","Tarixiy obida",30000,"09:00 - 18:00","Kichik, lekin noyob; 30 daqiqa yetadi."]],
+[["09:00 - 10:30","Ismoil Somoniy maqbarasi","Ismoil Somoniy bog'i, Buxoro","Tarixiy obida",30000,"09:00 - 18:00","Bog' bilan birga aylaning."],
+["11:00 - 13:00","Sitorai Mohi Xossa","Buxoro shahri chekkasi","Tarixiy obida",60000,"09:00 - 18:00","Taksi oldindan kelishing; qaytish mashinasini ham so'rang."],
+["14:00 - 16:00","Toqi Zargaron va hunarmandlar","Toqi Zargaron, Buxoro","Shopping",0,"09:00 - 19:00","Narxni kelishib oling; zarduzi va kulolchilik mashhur."],
+["19:00 - 20:30","Kechki Lyabi-Hovuz","Lyabi-Hovuz, Buxoro","Restoran/Kafe",100000,"18:00 - 23:00","Kechki ovqat va yoritilgan hovuz."]]]},
+tos:{n:"Toshkent",L:300000,F:130000,T:40000,idea:["Eski Toshkent: Xast-Imom, Chorsu va Amir Temur xiyoboni.","Muzeylar, metro va kechki Toshkent."],days:[
+[["09:00 - 11:00","Xast-Imom majmuasi","Zarqaynar ko'chasi, Toshkent","Tarixiy obida",0,"08:00 - 18:00","Usmon Qur'oni saqlanadigan Muyi Muborak kutubxonasiga ham kiring."],
+["11:30 - 13:00","Chorsu bozori","Navoiy ko'chasi, Toshkent","Shopping",0,"06:00 - 18:00","Gumbazli bozorda quruq meva va ziravorlar; qo'l yonidagi jips ehtiyot."],
+["13:15 - 14:30","Besh qozon oshi","Qoraqamish, Toshkent","Restoran/Kafe",90000,"11:00 - 15:00","Osh tushgacha tugab qoladi, erta boring."],
+["16:00 - 18:00","Amir Temur xiyoboni","Amir Temur ko'chasi, Toshkent","Park",0,"24 soat","Quyosh botishida piyoda sayr qiling."]],
+[["09:30 - 11:30","O'zbekiston tarixi muzeyi","Sharof Rashidov ko'chasi 3, Toshkent","Muzey",25000,"09:00 - 17:00","Dushanba kuni yopiq bo'lishi mumkin."],
+["12:00 - 13:00","Ko'kaldosh madrasasi","Chorsu yonida, Toshkent","Tarixiy obida",0,"09:00 - 18:00","Chorsudan piyoda yaqin."],
+["14:00 - 16:00","Metro sayohati","Kosmonavtlar va Alisher Navoiy bekatlari","Transport",1700,"05:00 - 24:00","Bekatlar nafis bezatilgan; bekatda suratga olish ruxsati holatga qarab."],
+["18:00 - 21:00","Toshkent teleminorasi va kechki ovqat","Shahar markazi, Toshkent","Restoran/Kafe",120000,"10:00 - 22:00","Shahar manzarasi uchun kech quyosh paytini tanlang."]]]},
+ist:{n:"Istanbul",L:1200000,F:450000,T:150000,idea:["Sultanahmet: Ayasofya, Topkapi va Yerebatan.","Bosfor, Galata va Karaköy qirg'og'i."],days:[
+[["09:00 - 11:00","Ayasofya","Sultanahmet Meydani, Fatih, Istanbul","Tarixiy obida",400000,"09:00 - 19:00","Chipta narxi o'zgaradi; rasmiy sayt orqali oldindan oling. Yopiq kiyim."],
+["11:30 - 13:30","Topkapi saroyi","Cankurtaran, Fatih, Istanbul","Muzey",550000,"09:00 - 18:00","Dushanba yopiq. Harem uchun alohida chipta kerak bo'lishi mumkin."],
+["14:00 - 15:00","Sultanahmet kofta tushligi","Sultanahmet, Istanbul","Restoran/Kafe",200000,"11:00 - 22:00","Turistik ko'chadan bir kvartal narida arzonroq."],
+["15:30 - 16:30","Yerebatan sardobasi","Alemdar, Fatih, Istanbul","Muzey",450000,"09:00 - 18:30","Qorong'i joy; surat uchun shtativsiz, yuqori ISO."]],
+[["09:30 - 11:00","Galata minorasi","Bereketzade, Beyoğlu, Istanbul","Tarixiy obida",450000,"08:30 - 23:00","Ertalab navbat kam."],
+["11:30 - 13:00","Istiqlol ko'chasi","Beyoğlu, Istanbul","Shopping",0,"24 soat","Tarixiy tramvay bilan o'ting."],
+["14:00 - 16:00","Bosfor kruizi","Eminönü iskalasi, Istanbul","Kruiz",300000,"10:00 - 20:00","Qisqa tur kifoya; kech soatda shamol, issiq kiyim."],
+["17:00 - 18:30","Karaköy baliq-non","Karaköy qirg'og'i, Istanbul","Restoran/Kafe",120000,"10:00 - 23:00","Quyosh botishida eng yaxshisi."]]]}
+};
+D.dub={n:"Dubay",idea:["Dubayning eski va yangi yuzi: Frame, Fahidi va Creek.","Zamonaviy Dubay: Mall, favvora va Burj Xalifa."],days:[
+[["09:00 - 11:00","Dubai Frame","Zabeel Park, Dubay","Tarixiy obida",170000,"09:00 - 21:00","Yuqoridan eski va yangi shahar bir vaqtda ko'rinadi."],
+["11:30 - 13:30","Al Fahidi tarixiy mahallasi","Bastakiya, Dubay","Tarixiy obida",0,"08:00 - 20:00","Issiq soatlardan oldin yuring; yopiq kiyim ma'qul."],
+["14:00 - 15:00","Karama tushligi","Karama, Dubay","Restoran/Kafe",120000,"11:00 - 23:00","Hind va pokiston taomlari arzon va mazali."],
+["16:00 - 17:30","Dubai Creek abra qayig'i","Al Seef iskalasi, Dubay","Transport",3500,"24 soat","Chipta juda arzon; quyosh botishi oldidan boring."]],
+[["10:00 - 12:00","Dubai Mall","Downtown Dubai","Shopping",0,"10:00 - 24:00","Ichkari sovuq, issiq kunlarda qulay."],
+["12:30 - 14:00","Mall ichida tushlik","Dubai Mall, Dubay","Restoran/Kafe",150000,"10:00 - 24:00","Ovqatxona maydoni (food court) arzonroq."],
+["17:00 - 19:00","Burj Xalifa (At the Top)","1 Mohammed Bin Rashid Blvd, Dubay","Tarixiy obida",550000,"09:00 - 23:00","Chiptani oldindan saytdan oling; quyosh botishiga yaqin vaqt eng yaxshi."],
+["19:30 - 20:30","Dubay favvorasi","Burj Xalifa ostida, Dubay","Park",0,"18:00 - 23:00","Namoyish har 30 daqiqada, bepul."]]]};
+D.tbs={n:"Tbilisi",idea:["Eski Tbilisi: hammomlar, Narikala va Rustaveli.","Muzey, sobor va Tinchlik ko'prigi."],days:[
+[["09:30 - 11:00","Abanotubani eski mahallasi","Abanotubani, Tbilisi","Tarixiy obida",0,"24 soat","Oltingugurtli hammomlar tashqaridan ham chiroyli."],
+["11:15 - 12:45","Narikala qal'asi","Narikala, Tbilisi","Tarixiy obida",11000,"24 soat","Kanat yo'li bilan chiqing, shahar manzarasi uchun."],
+["13:00 - 14:30","Xinkali tushligi","Eski shahar, Tbilisi","Restoran/Kafe",80000,"11:00 - 23:00","Xinkalini qo'lda, tepasidan ushlab eyiladi."],
+["15:30 - 17:30","Rustaveli xiyoboni","Rustaveli prospekti, Tbilisi","Shopping",0,"24 soat","Piyoda sayr va kafelar."]],
+[["10:00 - 11:30","Sameba soborii","Elia tepaligi, Tbilisi","Tarixiy obida",0,"09:00 - 19:00","Yelka va tizza yopiq bo'lsin; ayollar ro'mol olsin."],
+["12:00 - 13:30","Gruziya milliy muzeyi","Rustaveli 3, Tbilisi","Muzey",66000,"10:00 - 18:00","Dushanba yopiq bo'lishi mumkin."],
+["14:00 - 15:00","Gruzin tushligi","Eski shahar, Tbilisi","Restoran/Kafe",90000,"11:00 - 23:00","Xachapuri va sho'rva tavsiya etiladi."],
+["17:00 - 19:00","Tinchlik ko'prigi va Rike bog'i","Rike bog'i, Tbilisi","Park",0,"24 soat","Kechqurun ko'prik yoritilganda chiroyli."]]]};
+var META={
+sam:{country:"O'zbekiston",flag:"🇺🇿",fam:"Registon maydoni",lat:39.65,lon:66.96,tz:5,hi:[6,9,15,22,28,34,36,34,29,22,14,8],lo:[-1,1,6,11,15,19,21,19,14,8,3,0],tMode:"Afrosiyob poyezdi",tTime:130,tPrice:600000},
+bux:{country:"O'zbekiston",flag:"🇺🇿",fam:"Poi Kalon minorasi",lat:39.77,lon:64.42,tz:5,hi:[7,11,18,26,32,37,39,37,31,24,15,9],lo:[-2,0,6,12,17,21,23,20,14,8,3,-1],tMode:"Afrosiyob poyezdi",tTime:220,tPrice:800000},
+tos:{country:"O'zbekiston",flag:"🇺🇿",fam:"Toshkent teleminorasi",lat:41.31,lon:69.24,tz:5,hi:[5,8,15,22,28,34,36,34,28,21,13,7],lo:[-2,0,5,11,16,20,22,19,13,7,3,-1],tMode:"Shahar ichida",tTime:0,tPrice:0},
+ist:{country:"Turkiya",flag:"🇹🇷",fam:"Ayasofya",lat:41.01,lon:28.98,tz:3,hi:[9,10,12,17,22,27,29,29,25,20,15,11],lo:[4,4,6,9,14,18,21,21,18,14,9,6],tMode:"Samolyot",tTime:310,tPrice:3600000},
+dub:{country:"BAA",flag:"🇦🇪",fam:"Burj Xalifa",lat:25.2,lon:55.27,tz:4,hi:[24,25,28,33,38,40,41,41,39,35,30,26],lo:[14,15,17,20,24,27,30,30,27,23,19,16],tMode:"Samolyot",tTime:220,tPrice:3900000},
+tbs:{country:"Gruziya",flag:"🇬🇪",fam:"Narikala qal'asi",lat:41.69,lon:44.8,tz:4,hi:[6,8,13,19,24,29,32,32,27,20,13,8],lo:[-1,1,4,9,13,17,20,20,16,10,5,1],tMode:"Samolyot",tTime:220,tPrice:3500000}};
+var EX={dub:[1500000,500000,200000],tbs:[600000,300000,80000]};
+for(var k in META)Object.assign(D[k],META[k]);for(var k in EX){D[k].L=EX[k][0];D[k].F=EX[k][1];D[k].T=EX[k][2]}
+var DEF={cfg:{title:"Qayerga va qachon borish yaxshi? Bir joyda ko'ring",sub:"Sanani tanlang: davlatlar, harorat, quyosh, chipta narxi va kunma-kun reja shu zahoti chiqadi.",note:"Narxlar va harorat taxminiy (o'rtacha ko'rsatkichlar). Chiptalar, ish vaqti va kursni sayohatdan oldin rasmiy manbalarda tekshiring.",blue:"#1d4ed8",green:"#0e9f6e",red:"#e11d48",rate:12000},D:D};
+var $=function(i){return document.getElementById(i)};
+var S=JSON.parse(JSON.stringify(DEF)),cur="UZS",rate=12000,sel="sam",ec="sam",sunMin=null,PW="AiraPro";
+var MO=["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentabr","oktabr","noyabr","dekabr"],WD=["yakshanba","dushanba","seshanba","chorshanba","payshanba","juma","shanba"];
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function norm(c){var g={n:"Shahar",country:"",flag:"🏳️",fam:"",lat:41,lon:69,tz:5,hi:[10,12,16,22,27,32,35,33,28,21,15,11],lo:[0,2,6,11,16,20,23,21,16,10,5,1],tMode:"Samolyot",tTime:180,tPrice:2000000,L:300000,F:150000,T:50000,idea:[""],days:[[]]};for(var f in g)if(c[f]==null||(Array.isArray(g[f])&&f!=="idea"&&f!=="days"&&c[f].length!==12))c[f]=g[f];return c}
+function merge(x){var d={};for(var k in x.D)d[k]=norm(Object.assign({},DEF.D[k]||{},x.D[k]));return{cfg:Object.assign({},DEF.cfg,x.cfg||{}),D:Object.keys(d).length?d:DEF.D}}
+function ymd(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function today(){var t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())}
+function sd(){var v=$("start").value;return v?new Date(v+"T00:00:00"):today()}
+function dstr(d){return d.getDate()+"-"+MO[d.getMonth()]+", "+WD[d.getDay()]}
+function doy(d){return Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(d.getFullYear(),0,0))/864e5)}
+function interp(a,d){var x=(doy(d)-15)/30.4,i=Math.floor(x),f=x-i;return(Number(a[((i%12)+12)%12])||0)*(1-f)+(Number(a[(((i+1)%12)+12)%12])||0)*f}
+function wsc(c,d){var h=interp(c.hi,d);return Math.max(0,1-Math.max(0,20-h,h-28)/14)}
+function pmul(c,d){var m=.85+.35*wsc(c,d),w=d.getDay(),md=d.getMonth()*100+d.getDate();m*=(w===5||w===0)?1.08:(w===2||w===3)?.93:1;if(md>=1120||md<=105)m*=1.2;return m}
+function tprice(c,d){return Math.round(c.tPrice*pmul(c,d)/1000)*1000}
+function tot(c,d){return .75*wsc(c,d)+.25*(1-Math.min(1,Math.max(0,(pmul(c,d)-.8)/.5)))}
+function lab(s){return s>=.7?["g","Borish yaxshi"]:s>=.4?["y","O'rtacha"]:["r","Qulay emas"]}
+function dur(m){return m?Math.floor(m/60)+" soat"+(m%60?" "+m%60+" daq":""):"Shahar ichida"}
+function hm(m){m=((Math.round(m)%1440)+1440)%1440;return("0"+Math.floor(m/60)).slice(-2)+":"+("0"+m%60).slice(-2)}
+function fm(v){return cur==="USD"?"$"+Math.round(v/rate).toLocaleString("en-US"):Math.round(v).toLocaleString("ru-RU")+" so'm"}
+function ci(c){var n=0;for(var i=0;i<c.length;i++)n+=c.charCodeAt(i);return n%3}
+/* quyosh */
+function sunInfo(c,d){var R=Math.PI/180,g=2*Math.PI/365*(doy(d)-1);
+ var eq=229.18*(7.5e-5+1.868e-3*Math.cos(g)-.032077*Math.sin(g)-.014615*Math.cos(2*g)-.040849*Math.sin(2*g));
+ var de=.006918-.399912*Math.cos(g)+.070257*Math.sin(g)-.006758*Math.cos(2*g)+9.07e-4*Math.sin(2*g)-.002697*Math.cos(3*g)+.00148*Math.sin(3*g);
+ var la=c.lat*R,z=Math.cos(90.833*R)/(Math.cos(la)*Math.cos(de))-Math.tan(la)*Math.tan(de);z=Math.max(-1,Math.min(1,z));var ha=Math.acos(z)/R;
+ return{eq:eq,de:de,la:la,rise:720-4*(c.lon+ha)-eq+c.tz*60,set:720-4*(c.lon-ha)-eq+c.tz*60}}
+function elev(s,c,m){var h=((m+s.eq+4*c.lon-60*c.tz)/4-180)*Math.PI/180;return Math.asin(Math.sin(s.la)*Math.sin(s.de)+Math.cos(s.la)*Math.cos(s.de)*Math.cos(h))*180/Math.PI}
+function sunDraw(keep){var c=S.D[sel],d=sd(),s=sunInfo(c,d),m=sunMin,n=new Date();
+ if(m==null)m=ymd(d)===ymd(n)?(n.getUTCHours()*60+n.getUTCMinutes()+c.tz*60)%1440:720;
+ if(!keep&&$("sl"))$("sl").value=m;
+ var e=elev(s,c,m),up=e>0,t=Math.min(1,Math.max(0,(m-s.rise)/(s.set-s.rise))),x=30+340*t,y=120-360*t*(1-t),nz=(s.rise+s.set)/2;
+ var dir=m<nz-45?"sharqda":m>nz+45?"g'arbda":"janubda";
+ $("sunbox").innerHTML='<svg viewBox="0 0 400 140" role="img" aria-label="Quyosh holati" style="width:100%;border-radius:14px"><rect width="400" height="140" fill="'+(up?"#8ec5ff":"#0b1a3a")+'"/><path d="M30 120Q200 -60 370 120" fill="none" stroke="#ffffff99" stroke-dasharray="5 5"/>'+(up?'<circle cx="'+x+'" cy="'+y+'" r="15" fill="#ffd45e"/>':'<circle cx="200" cy="45" r="12" fill="#f1f5ff"/><circle cx="205" cy="42" r="11" fill="#0b1a3a"/>')+'<rect y="120" width="400" height="20" fill="#0e7a55"/></svg><p style="margin:8px 0 0"><b>Soat '+hm(m)+'</b> (u yerdagi vaqt). '+(up?'Quyosh '+dir+', ufqdan '+Math.round(e)+'° balandda.':'Quyosh ufq ostida, hozir tun.')+'</p>'}
+/* rasm */
+function art(k){var A={
+sam:'<rect x="150" y="75" width="100" height="115" fill="#d9b277"/><path d="M172 190V118a28 28 0 0 1 56 0v72z" fill="#1d4ed8"/><rect x="40" y="115" width="95" height="75" fill="#cfa46a"/><rect x="265" y="115" width="95" height="75" fill="#cfa46a"/><path d="M62 115a25 25 0 0 1 50 0z" fill="#12a39a"/><path d="M288 115a25 25 0 0 1 50 0z" fill="#12a39a"/><rect x="138" y="60" width="12" height="130" fill="#c4965a"/><rect x="250" y="60" width="12" height="130" fill="#c4965a"/><path d="M136 60a8 8 0 0 1 16 0z" fill="#12a39a"/><path d="M248 60a8 8 0 0 1 16 0z" fill="#12a39a"/>',
+bux:'<path d="M185 190L192 40h16l7 150z" fill="#d6a869"/><rect x="190" y="30" width="20" height="14" fill="#c4965a"/><path d="M188 30a12 12 0 0 1 24 0z" fill="#12a39a"/><rect x="186" y="80" width="28" height="6" fill="#1d4ed8"/><rect x="187" y="120" width="26" height="6" fill="#1d4ed8"/><rect x="186" y="150" width="28" height="6" fill="#1d4ed8"/><rect x="250" y="130" width="110" height="60" fill="#cfa46a"/><path d="M270 130a35 35 0 0 1 70 0z" fill="#1d4ed8"/><rect x="40" y="145" width="100" height="45" fill="#cfa46a"/><path d="M60 145a20 20 0 0 1 40 0z" fill="#12a39a"/>',
+tos:'<path d="M192 190L198 80h4l6 110z" fill="#dfe7f2"/><rect x="190" y="92" width="20" height="16" fill="#9fb4d0"/><ellipse cx="200" cy="100" rx="22" ry="9" fill="#e6edf7"/><rect x="199" y="20" width="2" height="62" fill="#dfe7f2"/><rect x="60" y="150" width="60" height="40" fill="#8aa0c0"/><rect x="290" y="140" width="60" height="50" fill="#7a92b5"/><rect x="130" y="160" width="40" height="30" fill="#9fb4d0"/>',
+ist:'<rect x="120" y="120" width="160" height="70" fill="#e0b88a"/><path d="M150 120a50 50 0 0 1 100 0z" fill="#9fb4d0"/><path d="M130 130a22 22 0 0 1 44 0z" fill="#8aa0c0"/><path d="M226 130a22 22 0 0 1 44 0z" fill="#8aa0c0"/><rect x="95" y="70" width="12" height="120" fill="#f1e4d0"/><rect x="293" y="70" width="12" height="120" fill="#f1e4d0"/><path d="M93 70L101 40L109 70z" fill="#9fb4d0"/><path d="M291 70L299 40L307 70z" fill="#9fb4d0"/>',
+dub:'<path d="M184 190L192 120L197 85L199 50L200 8L201 50L203 85L208 120L216 190z" fill="#e6edf7"/><rect x="60" y="130" width="40" height="60" fill="#9fb4d0"/><rect x="110" y="110" width="35" height="80" fill="#8aa0c0"/><rect x="255" y="120" width="40" height="70" fill="#9fb4d0"/><rect x="305" y="140" width="45" height="50" fill="#8aa0c0"/>',
+tbs:'<path d="M0 190V120Q80 90 150 130T300 100Q360 90 400 120V190z" fill="#6b8f5a"/><rect x="170" y="85" width="80" height="35" fill="#c8b49a"/><rect x="255" y="60" width="25" height="60" fill="#b9a384"/><path d="M252 60L267 40L283 60z" fill="#c0392b"/><rect x="40" y="150" width="40" height="40" fill="#e8c9a0"/><rect x="85" y="160" width="35" height="30" fill="#d9a56e"/><rect x="290" y="155" width="45" height="35" fill="#e8c9a0"/>'};
+ return'<svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="'+esc(S.D[k].fam)+' tasviri"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a6df0"/><stop offset="1" stop-color="#9be7d0"/></linearGradient></defs><rect width="400" height="220" fill="url(#sk)"/><circle cx="335" cy="48" r="22" fill="#ffd45e"/><rect y="190" width="400" height="30" fill="#0e7a55"/>'+(A[k]||'<rect x="60" y="120" width="60" height="70" fill="#8aa0c0"/><rect x="140" y="80" width="70" height="110" fill="#9fb4d0"/><rect x="230" y="110" width="60" height="80" fill="#7a92b5"/><rect x="300" y="140" width="50" height="50" fill="#8aa0c0"/>')+'</svg>'}
+/* sahifa */
+function theme(){var r=document.documentElement.style,c=S.cfg;r.setProperty("--blue",c.blue);r.setProperty("--green",c.green);r.setProperty("--red",c.red);$("ttl").textContent=c.title;$("sbt").textContent=c.sub;$("ftr").textContent=c.note}
+function setMode(m){document.documentElement.dataset.theme=m;try{localStorage.setItem("airapro-mode",m)}catch(e){}$("th").textContent=m==="dark"?"☀️ Yorug' rejim":"🌙 Qorong'i rejim"}
+function cards(){var d=sd(),h="";if(!S.D[sel])sel=Object.keys(S.D)[0];
+ Object.keys(S.D).forEach(function(k){var c=S.D[k],L=lab(tot(c,d));h+='<button type="button" class="dest'+(k===sel?" on":"")+'" data-k="'+esc(k)+'" aria-pressed="'+(k===sel)+'"><span class="fl">'+esc(c.flag)+'</span><b>'+esc(c.n)+'</b><small>'+esc(c.country)+'</small><span class="tmp">'+Math.round(interp(c.hi,d))+'° / '+Math.round(interp(c.lo,d))+'°</span><span class="bd '+L[0]+'">'+L[1]+'</span><small>'+(c.tTime?dur(c.tTime)+" · "+fm(tprice(c,d)):"Yo'l kerak emas")+'</small></button>'});
+ $("cards").innerHTML=h}
+function detail(){var c=S.D[sel],d=sd(),s=sunInfo(c,d),L=lab(tot(c,d)),t0=today(),cells="",best=null,i;
+ var im=c.img?'<img src="'+esc(c.img)+'" alt="'+esc(c.fam)+'">':art(sel);
+ for(i=0;i<(t0.getDay()+6)%7;i++)cells+="<span></span>";
+ for(i=0;i<56;i++){var x=new Date(t0.getFullYear(),t0.getMonth(),t0.getDate()+i),sc=tot(c,x),q=lab(sc);if(!best||sc>best.s)best={s:sc,d:x};
+  cells+='<button type="button" class="dc '+q[0]+(ymd(x)===$("start").value?" on":"")+'" data-d="'+ymd(x)+'" aria-label="'+x.getDate()+'-'+MO[x.getMonth()]+', '+Math.round(interp(c.hi,x))+' daraja, '+q[1]+(c.tTime?', chipta '+fm(tprice(c,x)):'')+'"><b>'+x.getDate()+'</b><small>'+Math.round(interp(c.hi,x))+'°</small></button>'}
+ var dz=c.tz-5;
+ $("det").innerHTML='<section class="card det"><div class="pic">'+im+'<div class="cap"><b style="font-size:22px">'+esc(c.flag+" "+c.n)+'</b><span>Eng mashhur joyi: '+esc(c.fam)+'</span></div></div><div class="st">'
+ +'<div class="sx"><small>Harorat ('+dstr(d)+')</small><b>'+Math.round(interp(c.hi,d))+'° kunduz</b><small>'+Math.round(interp(c.lo,d))+'° kechasi</small></div>'
+ +'<div class="sx"><small>Borish uchun</small><b><span class="bd '+L[0]+'">'+L[1]+'</span></b><small>harorat va chipta narxiga qarab</small></div>'
+ +'<div class="sx"><small>Yo\'lga ketadigan vaqt</small><b>'+dur(c.tTime)+'</b><small>'+esc(c.tMode)+', Toshkentdan</small></div>'
+ +'<div class="sx"><small>Yo\'l chiptasi (borib-qaytish)</small><b>'+(c.tTime?fm(tprice(c,d)):"Kerak emas")+'</b><small>1 kishi uchun, taxminiy</small></div>'
+ +'<div class="sx"><small>Quyosh chiqishi</small><b>'+hm(s.rise)+'</b><small>u yerdagi vaqt bilan</small></div>'
+ +'<div class="sx"><small>Quyosh botishi</small><b>'+hm(s.set)+'</b><small>kun '+Math.floor((s.set-s.rise)/60)+' soat '+Math.round((s.set-s.rise)%60)+' daq</small></div>'
+ +'<div class="sx w"><small>Vaqt farqi</small><b>'+(dz===0?"Toshkent bilan bir xil":(dz>0?"Toshkentdan "+dz+" soat oldin":"Toshkentdan "+(-dz)+" soat orqada"))+'</b></div></div></section>'
+ +'<div class="two"><section class="card"><h2>Quyosh qayerda?</h2><p class="hint">Soatni siljiting: quyosh osmonda qayerga yetganini ko\'rasiz.</p><div id="sunbox"></div><input type="range" id="sl" min="0" max="1425" step="15" aria-label="Soat"></section>'
+ +'<section class="card"><h2>Qaysi kunlar borish yaxshi?</h2><p class="hint">Yashil: yaxshi, sariq: o\'rtacha, qizil: qulay emas. Kunni bossangiz sana o\'sha kunga o\'tadi.</p><div class="cal">'+["Du","Se","Ch","Pa","Ju","Sh","Ya"].map(function(w){return'<span class="h">'+w+'</span>'}).join("")+cells+'</div><div class="lg"><span><i style="background:#0b7a55"></i>Yaxshi</span><span><i style="background:#b7791f"></i>O\'rtacha</span><span><i style="background:#b3203f"></i>Qulay emas</span></div><p style="margin:10px 0 0"><b>Eng yaxshi kun:</b> '+dstr(best.d)+(c.tTime?', chipta '+fm(tprice(c,best.d)):'')+'</p></section></div>';
+ sunDraw()}
+function build(){
+ var e=$("err");e.textContent="";
+ var days=parseInt($("days").value,10),ppl=parseInt($("ppl").value,10),bud=parseFloat($("bud").value);
+ if(!(days>=1&&days<=7)){e.textContent="Kunlar soni 1 dan 7 gacha bo'lishi kerak.";return}
+ if(!(ppl>=1&&ppl<=10)){e.textContent="Kishi soni 1 dan 10 gacha bo'lishi kerak.";return}
+ if(!(rate>0)){e.textContent="Dollar kursini kiriting, masalan 12000.";return}
+ if(!(bud>=0)){e.textContent="Budjetni raqam bilan kiriting.";return}
+ if(sd()<today()){e.textContent="Sana o'tib ketgan. Bugungi yoki keyingi sanani tanlang."}
+ var d=S.D[sel],st=sd(),budU=cur==="USD"?bud*rate:bud,h="",tick=0,n=d.days.length;
+ for(var i=0;i<days;i++){var t=d.days[i%n],dd=new Date(st.getFullYear(),st.getMonth(),st.getDate()+i);
+  h+='<section class="day"><h2><span>'+(i+1)+'-kun</span>'+esc(dstr(dd))+'</h2><p class="idea">'+esc(d.idea[i%n]||"")+'</p><div class="stops">';
+  t.forEach(function(s){var meal=/restoran|kafe/i.test(s[3]);if(!meal)tick+=+s[4]||0;
+   h+='<div class="stop c'+ci(String(s[3]))+'"><div class="tm">'+esc(s[0])+'</div><h3>'+esc(s[1])+'</h3><p class="ad">'+esc(s[2])+'</p><div class="chips"><span class="chip">'+esc(s[3])+'</span><span class="chip">'+(+s[4]?fm(+s[4])+(meal?' / kishi (taxminiy)':' kirish / kishi'):'Bepul')+'</span><span class="chip">'+esc(s[5])+'</span></div><p class="tip">'+esc(s[6])+'</p></div>'});
+  h+='</div></section>'}
+ var nights=Math.max(days-1,0),rooms=Math.ceil(ppl/2);
+ var c=[["Yo'l chiptasi","Borib-qaytish × "+ppl+" kishi ("+esc(d.tMode)+")",tprice(d,st)*ppl,"var(--blue)"],["Kirish chiptalari","Barcha joylar narxi × "+ppl+" kishi",tick*ppl,"#38bdf8"],["Mehmonxona","Bir xona × "+rooms+" xona × "+nights+" tun",d.L*nights*rooms,"var(--green)"],["Ovqat","Kuniga ovqat × "+days+" kun × "+ppl+" kishi",d.F*days*ppl,"var(--red)"],["Shahar ichidagi transport","Kuniga yo'l × "+days+" kun × "+ppl+" kishi",d.T*days*ppl,"#a78bfa"]];
+ var sub=c.reduce(function(a,x){return a+x[2]},0),rs=Math.round(sub*.1);c.push(["Zaxira (10%)","Kutilmagan xarajatlar uchun",rs,"#94a3b8"]);
+ var tt=sub+rs,diff=budU-tt;
+ h+='<section class="card sum"><h2>Umumiy xarajat va budjet</h2><p class="hint">'+esc(d.n)+', '+ppl+' kishi, '+days+' kun.</p><div class="bar">'+c.map(function(x){return'<i style="width:'+(tt?x[2]/tt*100:0)+'%;background:'+x[3]+'"></i>'}).join("")+'</div><div class="leg">'+c.map(function(x){return'<div><span><span class="dot" style="background:'+x[3]+'"></span><b>'+x[0]+'</b><small>'+x[1]+'</small></span><b>'+fm(x[2])+' ('+(tt?Math.round(x[2]/tt*100):0)+'%)</b></div>'}).join("")+'</div><p class="tot">Jami: '+fm(tt)+'</p><p>Sizning budjetingiz: <b>'+fm(budU)+'</b>. '+(diff>=0?'<b class="ok">'+fm(diff)+' ortib qoladi.</b> Bu pulni sovg\'a yoki qo\'shimcha ekskursiyaga ishlatishingiz mumkin.':'<b class="bad">'+fm(-diff)+' yetishmaydi.</b> Kunlar sonini kamaytiring yoki boshqa kunni tanlang: chipta arzonroq bo\'lishi mumkin.')+'</p></section>';
+ $("out").innerHTML='<h2 class="t" id="plan">4. Kunma-kun reja</h2>'+h}
+function render(){rate=parseFloat($("rate").value)||12000;cur=$("cur").value;theme();cards();detail();build()}
+/* admin */
+function inp(a,l,v,tp,hint){return'<label>'+l+'<input type="'+(tp==="num"||tp==="csv"?(tp==="num"?"number":"text"):tp||"text")+'" '+a+(tp==="num"?' data-t="num"':tp==="csv"?' data-t="csv"':'')+' value="'+esc(Array.isArray(v)?v.join(","):v)+'">'+(hint?'<small>'+hint+'</small>':'')+'</label>'}
+function login(){$("adb").innerHTML='<form id="lf"><h3>Parolni kiriting</h3><p class="hint">Faqat sayt egasi uchun.</p><label>Parol<input type="password" id="pw" autocomplete="current-password"></label><div class="row"><button class="gr" type="submit">Kirish</button><span class="err" id="le"></span></div></form>';
+ $("lf").onsubmit=function(ev){ev.preventDefault();if($("pw").value===PW){if(!S.D[ec])ec=Object.keys(S.D)[0];edRender()}else $("le").textContent="Parol noto'g'ri. Qayta urinib ko'ring."}}
+function edRender(){var c=S.D[ec],a='data-a="city" data-f=',h='<h3>1. Sayt matnlari va ranglari</h3><div class="g">'+inp('data-a="cfg" data-f="title"',"Bosh sarlavha",S.cfg.title)+inp('data-a="cfg" data-f="sub"',"Sarlavha tagidagi matn",S.cfg.sub)+inp('data-a="cfg" data-f="note"',"Sahifa pastidagi izoh",S.cfg.note)+inp('data-a="cfg" data-f="rate"',"Dollar kursi (boshlang'ich)",S.cfg.rate,"num")+inp('data-a="cfg" data-f="blue"',"Ko'k rang",S.cfg.blue,"color")+inp('data-a="cfg" data-f="green"',"Yashil rang",S.cfg.green,"color")+inp('data-a="cfg" data-f="red"',"Qizil rang",S.cfg.red,"color")+'</div>';
+ h+='<h3>2. Davlat va shaharlar</h3><div class="tabs">'+Object.keys(S.D).map(function(k){return'<button class="'+(k===ec?'':'al')+'" data-act="city" data-k="'+esc(k)+'">'+esc(S.D[k].n)+'</button>'}).join("")+'<button class="gr" data-act="newcity">+ Yangi shahar</button></div>';
+ h+='<div class="g">'+inp(a+'"n"',"Shahar nomi",c.n)+inp(a+'"country"',"Davlat",c.country)+inp(a+'"flag"',"Bayroq (emoji)",c.flag)+inp(a+'"fam"',"Eng mashhur joyi",c.fam)+inp(a+'"lat"',"Kenglik (lat)",c.lat,"num","Quyosh hisobi uchun")+inp(a+'"lon"',"Uzunlik (lon)",c.lon,"num")+inp(a+'"tz"',"UTC farqi (soat)",c.tz,"num","Toshkent = 5")+inp(a+'"hi"',"Kunduzgi harorat (12 oy)",c.hi,"csv","Yanvardan dekabrgacha, vergul bilan")+inp(a+'"lo"',"Tungi harorat (12 oy)",c.lo,"csv")+inp(a+'"tMode"',"Yo'l turi",c.tMode)+inp(a+'"tTime"',"Yo'l vaqti (daqiqa)",c.tTime,"num")+inp(a+'"tPrice"',"Yo'l chiptasi (so'm, borib-qaytish)",c.tPrice,"num")+inp(a+'"L"',"Mehmonxona (1 xona, 1 tun, so'm)",c.L,"num")+inp(a+'"F"',"Ovqat (1 kishi, 1 kun, so'm)",c.F,"num")+inp(a+'"T"',"Transport (1 kishi, 1 kun, so'm)",c.T,"num")+'<label>Eng mashhur joy rasmi<input type="file" id="up" accept="image/*"><small>'+(c.img?"Rasm yuklangan.":"Hozir chizma ko'rinadi. Haqiqiy rasm yuklashingiz mumkin.")+'</small></label></div>'+(c.img?'<div class="row"><button class="al" data-act="delimg">Rasmni olib tashlash</button></div>':'');
+ c.days.forEach(function(day,j){h+='<h3>'+(j+1)+'-kun shabloni</h3>'+inp('data-a="idea" data-j="'+j+'"',"Kunning qisqa g'oyasi",c.idea[j]||"");
+  day.forEach(function(s,k){h+='<div class="ab"><div class="g">'+["Vaqt","Joy nomi","Manzil","Kategoriya","Narx (so'm, 1 kishi)","Ish vaqti","Eslatma"].map(function(l,f){return inp('data-a="stop" data-j="'+j+'" data-s="'+k+'" data-f="'+f+'"',l,s[f],f===4?"num":"text")}).join("")+'</div><div class="row"><button class="rd" data-act="delstop" data-j="'+j+'" data-s="'+k+'">Bu joyni o\'chirish</button></div></div>'});
+  h+='<div class="row"><button class="gr" data-act="addstop" data-j="'+j+'">+ Joy qo\'shish</button><button class="rd" data-act="delday" data-j="'+j+'">Bu kunni o\'chirish</button></div>'});
+ h+='<div class="row"><button class="al" data-act="addday">+ Yangi kun shabloni</button><button class="rd" data-act="delcity">Bu shaharni o\'chirish</button></div><div class="row" style="position:sticky;bottom:0;background:var(--card);padding:12px 0"><button class="gr" data-act="save">Saqlash</button><button class="al" data-act="reset">Asl holatiga qaytarish</button><span class="note" id="amsg" role="status"></span></div>';
+ $("adb").innerHTML=h}
+var NS=["Vaqt","Joy","Manzil","Tarixiy obida",0,"09:00 - 18:00","Eslatma"];
+$("adb").addEventListener("input",function(e){var t=e.target,a=t.dataset.a;if(!a)return;var v=t.dataset.t==="num"?Number(t.value)||0:t.dataset.t==="csv"?t.value.split(",").map(function(x){return Number(x)||0}):t.value,c=S.D[ec];
+ if(a==="cfg"){S.cfg[t.dataset.f]=v;if(t.dataset.f==="rate")$("rate").value=v}else if(a==="city")c[t.dataset.f]=v;else if(a==="idea")c.idea[+t.dataset.j]=v;else if(a==="stop")c.days[+t.dataset.j][+t.dataset.s][+t.dataset.f]=v;render()});
+$("adb").addEventListener("change",function(e){if(e.target.id!=="up"||!e.target.files[0])return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var w=Math.min(720,im.width),cv=document.createElement("canvas");cv.width=w;cv.height=im.height*w/im.width;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);S.D[ec].img=cv.toDataURL("image/jpeg",.75);edRender();render()};im.src=r.result};r.readAsDataURL(e.target.files[0])});
+$("adb").addEventListener("click",function(e){var b=e.target.closest("button[data-act]");if(!b)return;var a=b.dataset.act,c=S.D[ec],j=+b.dataset.j;
+ if(a==="close")$("dlg").close();
+ else if(a==="city"){ec=b.dataset.k;edRender()}
+ else if(a==="newcity"){ec="c"+Date.now();S.D[ec]=norm({n:"Yangi shahar",idea:["Birinchi kun g'oyasi"],days:[[NS.slice()]]});sel=ec;render();edRender()}
+ else if(a==="delcity"){if(Object.keys(S.D).length<2){alert("Kamida bitta shahar qolishi kerak.");return}if(confirm(c.n+" shahrini o'chirasizmi?")){delete S.D[ec];ec=Object.keys(S.D)[0];sel=ec;render();edRender()}}
+ else if(a==="delimg"){c.img="";edRender();render()}
+ else if(a==="addstop"){c.days[j].push(NS.slice());edRender();render()}
+ else if(a==="delstop"){c.days[j].splice(+b.dataset.s,1);edRender();render()}
+ else if(a==="addday"){c.days.push([NS.slice()]);c.idea.push("Yangi kun g'oyasi");edRender();render()}
+ else if(a==="delday"){if(c.days.length<2){alert("Kamida bitta kun qolishi kerak.");return}c.days.splice(j,1);c.idea.splice(j,1);edRender();render()}
+ else if(a==="reset"){if(confirm("Hamma o'zgarishlar o'chib, asl holat qaytadi. Davom etasizmi?")){S=JSON.parse(JSON.stringify(DEF));ec=sel="sam";$("rate").value=S.cfg.rate;render();edRender()}}
+ else if(a==="save")save()});
+async function save(){var m=$("amsg"),cp=JSON.parse(JSON.stringify(S)),im={},k;m.textContent="Saqlanmoqda...";
+ for(k in cp.D){if(cp.D[k].img!==undefined)im[k]=cp.D[k].img;delete cp.D[k].img}
+ try{var db=window.claude&&await claude.use("db");if(db){await db.doc("site/content").set({json:JSON.stringify(cp)});for(k in im)await db.doc("site/img_"+k).set({u:im[k]});m.textContent="Saqlandi. Hamma tashrif buyuruvchilar yangilangan sahifani ko'radi.";return}}catch(e){m.textContent="Umumiy saqlash ishlamadi: faqat sayt egasi saqlay oladi. "}
+ try{localStorage.setItem("airapro",JSON.stringify(S));m.textContent+="Faqat shu brauzerda saqlandi."}catch(e){m.textContent+="Saqlab bo'lmadi."}}
+async function load(){try{var db=window.claude&&await claude.use("db");if(db){var s=await db.doc("site/content").get();if(s.exists){S=merge(JSON.parse(s.data().json));for(var k in S.D){try{var g=await db.doc("site/img_"+k).get();if(g.exists&&g.data().u)S.D[k].img=g.data().u}catch(e){}}return}}}catch(e){}
+ try{var l=localStorage.getItem("airapro");if(l)S=merge(JSON.parse(l))}catch(e){}}
+/* ishga tushirish */
+(function(){var m;try{m=localStorage.getItem("airapro-mode")}catch(e){}if(!m)m=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";setMode(m)})();
+$("th").onclick=function(){setMode(document.documentElement.dataset.theme==="dark"?"light":"dark")};
+$("adm").onclick=function(){login();$("dlg").showModal();setTimeout(function(){var p=$("pw");if(p)p.focus()},50)};
+$("dlg").addEventListener("click",function(e){if(e.target===$("dlg")||e.target.closest('[data-act="close"]'))$("dlg").close()});
+var t0=today();$("start").min=ymd(t0);t0.setDate(t0.getDate()+7);$("start").value=ymd(t0);$("rate").value=S.cfg.rate;
+["start","cur","rate","days","ppl","bud"].forEach(function(i){$(i).addEventListener("input",function(){sunMin=null;render()})});
+$("cards").addEventListener("click",function(e){var b=e.target.closest("[data-k]");if(b){sel=b.dataset.k;ec=sel;sunMin=null;render()}});
+$("det").addEventListener("click",function(e){var b=e.target.closest("[data-d]");if(b){$("start").value=b.dataset.d;sunMin=null;render()}});
+$("det").addEventListener("input",function(e){if(e.target.id==="sl"){sunMin=+e.target.value;sunDraw(true)}});
+$("f").addEventListener("submit",function(ev){ev.preventDefault();$("plan").scrollIntoView({behavior:"smooth"})});
+$("pr").onclick=function(){window.print()};
+render();
+load().then(function(){$("rate").value=S.cfg.rate;if(!S.D[sel])sel=Object.keys(S.D)[0];render()});
+</script>
+</body>
+</html>
